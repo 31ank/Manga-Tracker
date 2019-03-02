@@ -1,1 +1,2 @@
-Test
+# Manga-Tracker
+Setup coming soon
