@@ -1,10 +1,13 @@
 <?php
     require 'static.php';
-    include('database-connect.php');
+    require 'database-connect.php';
+    // if manganame is empty or null, move user to index page
     $mname = $_GET["MNameSearch"];
     if(is_null($mname) || $mname == ""){
         header('Location: index.php');
     }
+
+    // get mangas from db which contains the searched name
     $statement = $pdo->prepare("SELECT * FROM manga WHERE MName LIKE '" . $mname . "%'");
     $statement->execute();
 
@@ -27,7 +30,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Search</title>
+        <title>MT - <?php echo($mname); ?></title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,15 +42,16 @@
         </div>
         <div class="content">
             <?php for($i = 0; $i < $x; $i++){?>
-            <div class="item">
+            <div class="item" style="position: relative">
                 <p>Name: <?php echo($name[$i]);?></p>
                 <p>Volumes: <?php echo($vol[$i]);?></p>
                 <p>Chapters: <?php echo($cha[$i]);?></p>
-                <p>Image: <?php echo($img[$i]);?></p>
+                <img src="<?php echo($img[$i]);?>" style="width:55px;height:auto;position:absolute;right:10px;top:7px;">
                 <?php if(isset($_SESSION["UserName"])){?>
                 <form action="addmanga-script.php" method="post">
                     <input type="hidden" value="<?php echo($id[$i]);?>" name="MID">
-                    <input class="button" type="submit" value="Add" style="width:auto;">
+                    <input class="button" type="submit" name="btnOnline" value="Reading online" style="width:auto;">
+                    <input class="button" type="submit" value="Reading offline" style="width: auto;">
                 </form>
                 <?php } ?>
             </div>

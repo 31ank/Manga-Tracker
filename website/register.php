@@ -3,9 +3,8 @@
 ?>
 <html>
 	<head>
-		<title>MangaTracker</title>
+		<title>MT - Register</title>
 		<meta charset="UTF-8">
-		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<meta name="viewport" content="width=device-with">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" media="screen and (max-width: 500px), screen and (max-device-width: 400px)"  href="mobil.css">
@@ -18,7 +17,6 @@
 		<div class="content">
 			<div class="item">
 				<form action="register-script.php" method="post">
-					<div style="display:flex;aligen-content:center;"><div class="g-recaptcha" data-sitekey="[Site-Key]" data-theme="light"></div></div>
 					<table>
 						<tr>
 							<td>Username:</td>

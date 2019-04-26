@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Mrz 2019 um 23:14
--- Server-Version: 10.1.37-MariaDB
--- PHP-Version: 7.3.1
+-- Erstellungszeit: 26. Apr 2019 um 21:17
+-- Server-Version: 5.5.60-0+deb7u1
+-- PHP-Version: 5.6.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,19 +39,6 @@ CREATE TABLE `manga` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `news`
---
-
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `Content` text NOT NULL,
-  `Publication` date NOT NULL,
-  `Author` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `usermanga`
 --
 
@@ -62,8 +49,8 @@ CREATE TABLE `usermanga` (
   `STATUS` int(11) NOT NULL DEFAULT '0' COMMENT '0 plan - 1 reading - 2 dropped - 3 finished',
   `CHA` int(11) NOT NULL DEFAULT '0',
   `VOL` int(11) NOT NULL DEFAULT '0',
-  `LINK` text NOT NULL,
-  `OWN` int(11) NOT NULL DEFAULT '0' COMMENT '0 real - 1 online'
+  `OWN` int(11) NOT NULL DEFAULT '0' COMMENT '0 real - 1 online',
+  `VIEW` int(11) NOT NULL DEFAULT '0' COMMENT '0 - Cha und Vol : 1 - Vol und OWN'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -77,10 +64,7 @@ CREATE TABLE `users` (
   `UserName` text NOT NULL,
   `UserEmail` text NOT NULL,
   `UserPSW` text NOT NULL,
-  `UserMod` int(11) NOT NULL DEFAULT '0',
-  `UserAdmin` int(11) NOT NULL DEFAULT '0',
-  `UserView` int(11) NOT NULL DEFAULT '0' COMMENT '0 easy - 1 chap and vol',
-  `UserLang` int(11) NOT NULL DEFAULT '0' COMMENT '0 de - 2 en - 3 jp'
+  `UserAdmin` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -92,12 +76,6 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `manga`
   ADD PRIMARY KEY (`MID`);
-
---
--- Indizes für die Tabelle `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indizes für die Tabelle `usermanga`
@@ -119,25 +97,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `manga`
 --
 ALTER TABLE `manga`
-  MODIFY `MID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT für Tabelle `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `usermanga`
 --
 ALTER TABLE `usermanga`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

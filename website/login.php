@@ -1,16 +1,11 @@
 <?php
-require 'static.php';
-session_start();
-if(isset($_SESSION["login"])){
-    if($_SESSION["login"] > 5){
-        header('Location: error/tomany.php');
-    }
-}
+    require 'static.php';
+    session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Login</title>
+        <title>MT - Login</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,6 +26,7 @@ if(isset($_SESSION["login"])){
                             <input type="password" name="upsw"><br>
                             <input class="button" type="submit" name="Login" value="Login" style="width:100%;margin:0px;margin-top:5px;margin-bottom:5px;">
                         </form>
+                        <a href="register.php">Create new account</a>
                     </div>
 				</table>
 			</div>
@@ -38,5 +34,8 @@ if(isset($_SESSION["login"])){
         <div class="foot">
             <p><?php echo($foot); ?></p>
         </div>
+        <script>
+        document.getElementById("login").style.backgroundColor = "#000a12";
+    </script>
     </body>
 </html>

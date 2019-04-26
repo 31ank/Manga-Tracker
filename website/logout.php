@@ -6,6 +6,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <title>MT - Logout</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,7 +17,9 @@
             <?php echo($menu); ?>
         </div>
         <div class="content">
-            You successfully logged out
+            <div class="item">
+                You successfully logged out
+            </div>
         </div>
         <div class="foot">
             <p><?php echo($foot); ?></p>

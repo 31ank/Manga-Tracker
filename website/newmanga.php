@@ -1,6 +1,7 @@
 <?php
     require 'static.php';
     session_start();
+    //Only admins can visit this site
     if($_SESSION['UserAdmin'] == 1){
 ?>
 <!DOCTYPE HTML>

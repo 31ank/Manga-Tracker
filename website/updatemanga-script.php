@@ -1,6 +1,7 @@
 <?php
     include("database-connect.php");
     session_start();
+    //update mangas based on the button press
     if(isset($_POST["mid"])){
         if(isset($_POST["btn_inc_vol"])){
             $statement = $pdo->prepare("UPDATE usermanga SET VOL = VOL + 1 WHERE UID = '" . $_SESSION["UserID"] . "' AND MID = '" . $_POST["mid"] . "'");

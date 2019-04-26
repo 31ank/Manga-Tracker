@@ -1,19 +1,9 @@
-/* 
-    Colors:
-    Primary: #eceff1
-    Light: #ffffff
-    Dark: #babdbe
-
-*/
-
 * {
     margin: 0;
     padding: 0;
 }
 
 body{
-    background-color: black;
-
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -33,14 +23,15 @@ body{
     min-height: 100vh;
 
     color: black;
-    background-color: #eceff1;
+    background-color: #FFFFFF;
     font-size: 14px;
 }
 
 .menu {
-    background-color: #ffffff;
+    background-color: #263238;
     display: flex;
     width: inherit;
+    position: relative;
     justify-content: flex-start;
     font-size: 16px;
     -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.3);
@@ -59,15 +50,15 @@ body{
     width: 100px;
     -webkit-transition: background-color 0.5s; /* Safari */
     transition: background-color 0.5s;
-    color: black;
+    color: #FFFFFF;
 }
 
 .menu a:hover{
-    background-color: #eceff1;
+    background-color: #000a12;
 }
 
 .content {
-    background-color: #eceff1;
+    background-color: #E1E2E1;
     display: flex;
     justify-content: center;
     width: inherit;
@@ -78,7 +69,8 @@ body{
 }
 
 .foot {
-    background-color: #ffffff;
+    background-color: #263238;
+    color:#FFFFFF;
     display: flex;
     justify-content: center;
     width: inherit;
@@ -91,15 +83,19 @@ body{
     z-index: 5;
 }
 
+.foot a{
+    color:#FFFFFF;
+}
+
 .item{
     min-width: 300px;
     width: 500px;
     max-width: 1200px;
-    background-color: #ffffff;
+    background-color: #F5F5F6;;
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
@@ -126,7 +122,7 @@ input[type=text] {
     margin: 5px;
     margin-left: 0px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px solid #babdbe;
 }
 
@@ -136,7 +132,7 @@ input[type=password] {
     margin: 5px;
     margin-left: 0px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px solid #babdbe;
 }
 
@@ -145,7 +141,21 @@ input[type=submit] {
     font-size: 12px;
     margin: 5px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 2px;
+    background-color: #eceff1;
+    border: 1px solid #babdbe;
+    -webkit-transition: background-color 0.5s; /* Safari */
+    transition: background-color 0.5s;
+    width: 25px;
+    height: 25px;
+}
+
+input[type=button] {
+    padding: 5px;
+    font-size: 12px;
+    margin: 5px;
+    box-sizing: border-box;
+    border-radius: 2px;
     background-color: #eceff1;
     border: 1px solid #babdbe;
     -webkit-transition: background-color 0.5s; /* Safari */
@@ -155,6 +165,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
+    background-color: #babdbe;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
     background-color: #babdbe;
     cursor: pointer;
 }
