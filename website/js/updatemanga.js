@@ -47,10 +47,9 @@ function decrease_own(mid){
 }
 
 function remove(mid){
-    $.ajax({
-        url: "updatemanga-scriptV2.php?rem=1&mid=" + mid,
-      });
-    location.reload(); 
+    removeManga(mid).then(function(data){
+      location.reload();
+    });
 }
 
 function increase_gui(mid, type){
@@ -61,4 +60,10 @@ function increase_gui(mid, type){
 function decrease_gui(mid, type){
   var item = type + "_" + mid;
   document.getElementById(item).innerHTML = parseInt(document.getElementById(item).innerHTML) - 1;
+}
+
+function removeManga(mid) {
+  return $.ajax({
+    url: "updatemanga-scriptV2.php?rem=1&mid=" + mid,
+  });
 }
