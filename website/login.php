@@ -19,14 +19,15 @@
             <div class="login">
                 <table>
                     <div class="item">
+                        <div class="header">
+                            Login
+                        </div>
                         <form action="login-script.php" method="post">
-                            <p>E-Mail:</p>
-                            <input type="text" name="uemail">
-                            <p>Password:</p>
-                            <input type="password" name="upsw"><br>
+                            <input type="text" name="uemail" placeholder="E-Mail"><br>
+                            <input type="password" name="upsw" placeholder="Password"><br>
                             <input class="button" type="submit" name="Login" value="Login" style="width:100%;margin:0px;margin-top:5px;margin-bottom:5px;">
                         </form>
-                        <a href="register.php">Create new account</a>
+                        <!-- <a href="register.php">Create new account</a> -->
                     </div>
 				</table>
 			</div>
@@ -35,7 +36,7 @@
             <p><?php echo($foot); ?></p>
         </div>
         <script>
-        document.getElementById("login").style.backgroundColor = "#000a12";
-    </script>
+            document.getElementById("login").style.backgroundColor = "#000a12";
+        </script>
     </body>
 </html>

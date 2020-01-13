@@ -17,6 +17,9 @@
 		<div class="content">
 			<div class="item">
 				<form action="register-script.php" method="post">
+					<div class="header">
+						Register
+					</div>
 					<table>
 						<tr>
 							<td>Username:</td>
@@ -30,11 +33,8 @@
 							<td>E-Mail:</td>
 							<td><input type="text" name="email" size="20"></td>
 						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td><input class="button" type="submit" name="Login" value="Register" style="width: auto;"></td>
-						</tr>
 					</table>
+					<input class="button" type="submit" name="Login" value="Register" style="width:100%;margin:0px;margin-top:5px;margin-bottom:5px;">
 				</form>
 			</div>
 		</div>

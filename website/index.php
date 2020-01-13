@@ -17,7 +17,7 @@
         </div>
         <div class="content">
             <div class="item">
-                <p>Search</p>
+                <div class="header">Search</div>
                 <form action="search.php" method="GET">
                     <input type="text" name="MNameSearch">
                     <input class="button" type="submit" value="Search" style="width:auto;">
