@@ -4,6 +4,7 @@
 	if(isset($_SESSION["login"])){
 		if($_SESSION["login"] > 5){
 			header("Location: error/loginerror.php?error=6");
+			exit;
 		}
 	}
 
@@ -19,11 +20,10 @@
 	if(!filter_var($usermail, FILTER_VALIDATE_EMAIL) || $cleanEmail != $usermail){
 		// Not a valid mail
 		header('Location: error/loginerror.php?error=1&mail=malicious');
+		exit;
 	}
 	
 	$usermail = strtolower($usermail);
-	echo('USERMAIL:');
-	echo($usermail);
 
 	$query = $pdo->prepare("select * from users where UserEmail = :mail LIMIT 0 , 1 ");
 	$query->execute([':mail' => $usermail]);
@@ -35,6 +35,7 @@
 			$_SESSION['UserID']=$check["UserID"];
 			$_SESSION['UserAdmin']=$check['UserAdmin'];
 			header('Location: index.php');
+			exit;
 		//else increase login - fail - counter
 		}else{
 			if(isset($_SESSION["login"])){
@@ -43,6 +44,7 @@
 				$_SESSION["login"] = 1;
 			}
 			header('Location: error/loginerror.php?error=1');
+			exit;
 		}
 	}
 ?>
