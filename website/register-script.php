@@ -6,6 +6,8 @@
 	$pswunsafe=$_POST['password'];
 	$email=$_POST['email'];
 
+	$email = strtolower($email);
+
 	//check if username or password is empty
 	if ($username==""){
 		header('Location: error/loginerror.php?error=3');

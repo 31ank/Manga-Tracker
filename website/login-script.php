@@ -13,10 +13,20 @@
 
 	$usermail=$_POST['uemail'];
 	$userpsw=$_POST['upsw'];
-	//get all users with similar name
-	$query = $pdo->prepare("select * from users where UserEmail LIKE '%$usermail%' LIMIT 0 , 1 ");
-	$query->execute();
 
+	$cleanEmail = filter_var($usermail, FILTER_SANITIZE_EMAIL);
+	
+	if(!filter_var($usermail, FILTER_VALIDATE_EMAIL) || $cleanEmail != $usermail){
+		// Not a valid mail
+		header('Location: error/loginerror.php?error=1&mail=malicious');
+	}
+	
+	$usermail = strtolower($usermail);
+	echo('USERMAIL:');
+	echo($usermail);
+
+	$query = $pdo->prepare("select * from users where UserEmail = :mail LIMIT 0 , 1 ");
+	$query->execute([':mail' => $usermail]);
 	if($check = $query->fetch()){
 		//if usermail and password are similar -> fill session
 		if($check['UserEmail'] == $usermail && password_verify($userpsw, $check['UserPSW'])){
